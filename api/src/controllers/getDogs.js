@@ -1,7 +1,6 @@
-const axios = require('axios');
 const { getDogsMixed } = require('./saveApi')
 
-// En esta ruta tambien va a servir para buscar por query
+// esta ruta tambien va a servir para buscar por query
 
 const getDogs = async (req, res) => {
     try {
