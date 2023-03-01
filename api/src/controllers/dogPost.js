@@ -4,40 +4,75 @@
 
 const { Dog, Temperament } = require('../db');
 
+const dogPost = async (req, res) => {
 
-const dogPost = async(req, res) => {
-    const { Imagen, Nombre, Altura, Peso, Años_de_vida, Temperamento } = req.body;
     try {
-        const dog = await Dog.findOrCreate({
+        const { name, min_height, max_height, min_weight, max_weight, temperaments, life_span, image } = req.body;
+
+        const heightTotal = [];
+        heightTotal.push(min_height, max_height);
+        
+        const weightTotal = [];
+        weightTotal.push(min_weight, max_weight);
+
+        const dog = await Dog.create({
+            name: name,
+            height: heightTotal,
+            weight: weightTotal,
+            life_span,
+            image: image ? image : "https://img.freepik.com/vector-premium/adorable-perro-sentado-dibujos-animados_74769-13.jpg"
+        })
+
+        const tempAssociated = await Temperament.findAll({
             where: {
-                Nombre: Nombre,
-                Imagen: Imagen,
-                Altura: Altura,
-                Peso: Peso,
-                Años_de_vida: Años_de_vida
+                name: temperaments
             }
         });
-        if(Temperamento){
-            const te = Temperamento.split(',')
-            te.map(async t => {
-                try {
-                    const temp = await Temperament.findOrCreate({
-                        where: {
-                            Nombre: t
-                        }
-                    });
-                    dog.addTemperament(temp[0])
-                } catch (error) {
-                    res.status(400).json({error: error.message})
-                }
-            })
-        }
-        res.status(200).json(dog)
-    } catch(error){
+
+        dog.addTemperament(tempAssociated);
+
+        res.status(200).send("Dog created succesfully!")
+    } catch (error) {
         res.status(400).json({error: error.message})
     }
 
-    
+
+
+
+
+
+    // const { Imagen, Nombre, Altura, Peso, Años_de_vida, Temperamento } = req.body;
+    // try {
+    //     const dog = await Dog.findOrCreate({
+    //         where: {
+    //             Nombre: Nombre,
+    //             Imagen: Imagen,
+    //             Altura: Altura,
+    //             Peso: Peso,
+    //             Años_de_vida: Años_de_vida
+    //         }
+    //     });
+    //     if(Temperamento){
+    //         const te = Temperamento.split(',')
+    //         te.map(async t => {
+    //             try {
+    //                 const temp = await Temperament.findOrCreate({
+    //                     where: {
+    //                         Nombre: t
+    //                     }
+    //                 });
+    //                 dog.addTemperament(temp[0])
+    //             } catch (error) {
+    //                 res.status(400).json({error: error.message})
+    //             }
+    //         })
+    //     }
+    //     res.status(200).json(dog)
+    // } catch(error){
+    //     res.status(400).json({error: error.message})
+    // }
+
+
 }
 
 module.exports = dogPost;

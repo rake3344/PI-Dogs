@@ -1,15 +1,19 @@
 const axios = require('axios');
+const { getDogsMixed } = require('./saveApi')
+
+// En esta ruta tambien va a servir para buscar por query
 
 const getDogs = async (req, res) => {
     try {
-        const response = await axios(`https://api.thedogapi.com/v1/breeds`);
-        const data = response.data;
-        const dogs = data.map(dog => {
-            return {
-                Nombre: dog.name
-            }
-        })
-        res.status(200).json(dogs);
+        const { name } = req.query;
+        const allDogs = await getDogsMixed();
+        if(name){
+            const dogs = allDogs.filter(dog => dog.name.toLowerCase().includes(name.toLowerCase()));
+            dogs.length ? res.status(200).json(dogs) : res.status(404).send("Dog not found")
+        } else {
+            res.status(200).json(allDogs)
+        }
+        
     } catch (error) {
         res.status(400).json({ error: error.message })
     }

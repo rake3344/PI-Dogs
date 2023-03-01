@@ -3,29 +3,25 @@
 
 const axios = require('axios');
 const { Temperament } = require('../db');
+const { API_KEY } = process.env;
 
 const getTemperaments = async(req,res) => {
-    let arr = []
     try {
-        const response = await axios("https://api.thedogapi.com/v1/breeds");
+        const response = await axios(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`);
         const data = response.data;
-        data.forEach(temper => {
-            if(temper.temperament){
-                arr.push(
-                    temper.temperament.split(',')
-                )
-            }
-        })
-        arr = arr.concat().flat();
-        arr = arr.filter((item, index) => {
-            return arr.indexOf(item.trim()) === index;
-        })
-        const temp = Temperament.bulkCreate(arr.map(e => {
-            return {
-                Nombre: e
-            }
-        }))
-        res.status(200).json(temp)
+        const temperaments = data.map(t => t.temperament);
+        const temp = temperaments.toString().split(",");
+        temp.forEach(tem => {
+            const i = tem.trim();
+            Temperament.findOrCreate({
+                where: {
+                    name: i
+                }
+            })
+        });
+
+        const allTemperaments = await Temperament.findAll();
+        res.send(allTemperaments)
     } catch (error) {
         res.status(400).json({error: error.message})
     }
