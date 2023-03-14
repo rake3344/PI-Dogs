@@ -1,4 +1,4 @@
-const { Dog, conn } = require('../../src/db.js');
+const { Dog, conn, Temperaments } = require('../../src/db.js');
 const { expect } = require('chai');
 
 describe('Dog model', () => {
@@ -20,3 +20,6 @@ describe('Dog model', () => {
     });
   });
 });
+
+
+

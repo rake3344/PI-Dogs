@@ -1,0 +1,53 @@
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    font-size: 0.7rem;
+    text-decoration: none;
+    max-height: 50vh;
+    overflow: hidden;
+    color: #575025;
+    position: relative;
+}
+
+.container::before {
+    position: absolute;
+}
+
+.container:hover::before {
+    height: 108%;
+    width: 100%;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 2.2rem;
+    left: 0%;
+    background-color: rgba(153, 153, 153, 0.5);
+}
+
+.img {
+    height: 29vh;
+    border-radius: 7px;
+}
+
+.img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container h2 {
+    color: black;
+}
+
+.temp {
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0 0.7rem;
+}
+
+.temp h3 {
+    margin: 0 0.3rem 0.4rem 0.3rem;
+}

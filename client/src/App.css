@@ -1,7 +1,12 @@
 .App {
   text-align: center;
+  /* background-image: url("https://images.wallpaperscraft.com/image/single/dog_sunset_dark_133896_1920x1200.jpg");
+  background-repeat: no-repeat; */
 }
 
+
+
+/* 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +40,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

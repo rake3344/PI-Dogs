@@ -1,0 +1,97 @@
+
+.div {
+    position: fixed;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sec_container {
+    width: 50vw;
+    padding-top: 2rem;
+    position: relative;
+}
+
+.sec_container h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #BDC3C7;
+    text-align: center;
+    margin-bottom: 0rem;
+    text-shadow: 0 0 2px #25b687;
+    margin-left: 1rem;
+    margin-top: 18rem;
+}
+
+
+
+.sec_container .parrafo {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3%;
+    margin-left: 9rem;
+}
+
+.parrafo p {
+    color: #BDC3C7 ;
+    text-shadow: 0 0 1px #25b687;
+    font-size: 1.5rem;
+    width: 23rem;
+    text-align: left;
+}
+
+
+.button{
+    display: block;
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    text-decoration: none;
+    color: #333;
+    border: 2px solid #333;
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    transition: all .35s;
+    margin-bottom: 200%;
+    margin-left: 30%;
+    cursor: pointer;
+}
+
+.span {
+    position: relative;
+    z-index: 2;
+}
+
+.button::after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #ff003b;
+    transition: all .35s;
+}
+
+.button:hover {
+    color: #fff;
+}
+
+.button:hover::after {
+    width: 100%;
+}
+
+.container {
+    background-image: url("../assets/doggy.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    height: 100vh;
+    width: 100%;
+}
+
+
+

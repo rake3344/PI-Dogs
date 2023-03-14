@@ -1,10 +1,15 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale; */
+  font-family: 'Playfair Display', serif;
+  /* background-image: url("https://wallpaperaccess.com/full/214617.png"); */
+  /* background-image: url("./dog.jpg"); */
+  background-image: url("./components/assets/doggy.jpg");
+  background-position: center;
 }
 
 code {

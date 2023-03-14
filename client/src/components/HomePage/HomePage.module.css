@@ -1,0 +1,112 @@
+
+.container {
+    margin: 0 5% 0 5%;
+}
+
+.card_container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    grid-gap: 5% 0.9%;
+    justify-content: center;
+    padding: 2rem 0 2rem 0;
+    margin-bottom: 1px;
+}
+
+.card_container:hover {
+    cursor: pointer;
+}
+
+.card {
+    background-color: #85C1E9;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 93%;
+    height: 106%;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 5px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    background: none;
+}
+
+.header_content {
+    margin: 0 6%;
+    padding-bottom: 3rem;
+    display: block;
+    margin-top: 25px;
+}
+
+.secHeader {
+    padding-top: 0.6rem;
+    margin-left: 600px;
+}
+
+.filters {
+    width: 190%;
+    border-radius: 25px;
+    margin-left: 40%;
+    margin-top: 1%;
+}
+
+.filters select {
+    padding: 0.5rem 0.9rem;
+    border: none;
+    box-shadow: 5px 5px 5px 0.5px rgba(0,0,0,0.4);
+    background-color: #17A589 ;
+    color: white;
+    cursor: pointer;
+}
+
+.filters select:first-child {
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.filters select:last-child {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.logo {
+    float: left;
+    color: white;
+    height: 100%;
+    width: 125px;
+    margin: 0.3rem 0;
+    margin-top: 2px;
+}
+
+.createDog {
+    margin: 0.5rem 10%;
+    margin-top: 35px;
+    margin-left: 5px;
+}
+
+.createDogBtn {
+    width: 100px;
+    max-width: 370px;
+    height: 20px;
+    position: absolute;
+    background-color: #17A589 ;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px 2px rgb(0,0,0);
+    margin-left: 15px;
+    margin-top: 0px;
+}
+
+.pagination {
+    margin-left: 0%;
+    padding-left: 0;
+    margin-top: 5%;
+}
+
+
