@@ -25,7 +25,6 @@ export const FormPage = () => {
 
     const dispatch = useDispatch();
     const temperaments = useSelector((state) => state.temperaments);
-    const dogsDb = useSelector((state) => state.dogsDb);
 
     const [ input, setInput ] = useState({
         name: "",
@@ -65,8 +64,7 @@ export const FormPage = () => {
             temperaments: [],
             image: ""
         })
-        dogsDb.push(input);
-        console.log(dogsDb);
+
     }
 
     const handleInputChange = (e) => {

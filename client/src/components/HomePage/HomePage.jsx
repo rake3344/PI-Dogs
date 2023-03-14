@@ -6,7 +6,6 @@ import {
     filterByTemperament,
     orderByName,
     orderByWeight,
-    getDogByDb
 } from "../../redux/actions";
 import Card from "../Card/Card";
 import Paginate from "../Paginate/Paginate";
@@ -19,7 +18,6 @@ export const HomePage = () => {
     const dispatch = useDispatch();
     const allDogs = useSelector(state => state.dogs);
     const temperaments = useSelector(state => state.temperaments);
-    const dogsDb = useSelector(state => state.dogsDb);
 
     const [actualPage, setActualPage] = useState(1);
     const [dogsPorPage, setDogsPorPage] = useState(8);
@@ -27,7 +25,6 @@ export const HomePage = () => {
     const firstIndex = lastIndex - dogsPorPage;
     const currentDogs = allDogs.slice(firstIndex, lastIndex);
 
-    console.log(dogsDb);
 
     const paginate = (numberPage) => {
         setActualPage(numberPage);
@@ -57,11 +54,6 @@ export const HomePage = () => {
         setOrden(e.target.value);
     }
 
-    const handleOrderByCreated = (e) => {
-        e.preventDefault();
-        dispatch(getDogByDb(e.target.value));
-        setOrden(e.target.value);
-    }
 
     return (
         <div className={style.main}>
